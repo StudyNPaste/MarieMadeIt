@@ -20,12 +20,11 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="nav-logo">
-              <Link style={{textDecoration: 'none'}} to='/'>
-                <img id="logo" src={logo} alt="" />
-                <p></p>
+                <Link style={{textDecoration: 'none'}} to='/'>
+                    <img id="logo" src={logo} alt="" />
                 </Link>
+                <h1 className="logo-text">MarieMadeIt</h1>
             </div>
-            <img className="nav-dropdown" onClick={dropdown_toggle} src={nav_dropdown} alt=""/>
             <ul ref={menuRef} className="nav-links" >
                 <li onClick={()=>{setMenu('home')}}><Link style={{textDecoration: 'none'}} to='/'>Home</Link>{menu === "home"?<hr/>:<></>}</li>
                 <li onClick={()=>{setMenu('clothes')}}><Link style={{textDecoration: 'none'}} to='/clothes'>Clothes</Link>{menu === "clothes"?<hr/>:<></>}</li>
@@ -35,10 +34,17 @@ const Navbar = () => {
             </ul>
             <div className="nav-login-cart">
                 {localStorage.getItem('auth-token')
-                ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Logout</button>
-                :<Link style={{textDecoration: 'none'}} to='/login'><button>Login</button></Link>}
-                <Link style={{textDecoration: 'none'}} to='/cart'><img id="cart" src={cart_icon} alt=""/></Link>
-                <div className="nav-cart-count">{getTotalCartItems()}</div>
+                ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}><span className="span-login">Logout</span></button>
+                :<Link style={{textDecoration: 'none'}} to='/login'><button><span className="span-login">Login</span></button></Link>}
+                <div >
+                    <div className="drop-cart">
+                        <Link style={{textDecoration: 'none'}} to='/cart'><img id="cart" src={cart_icon} alt=""/></Link>
+                        <div className="nav-cart-count">{getTotalCartItems()}</div>
+                    </div>
+                    <div className="drop-cart">
+                        <img className="nav-dropdown" onClick={dropdown_toggle} src={nav_dropdown} alt=""/>
+                    </div>
+                </div>
             </div>
         </div>
     )

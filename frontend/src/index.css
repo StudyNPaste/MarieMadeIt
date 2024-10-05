@@ -11,10 +11,14 @@ body {
   font-family: Kaushan Script;
   /*background: linear-gradient(170deg, rgb(233, 140, 202), rgb(203, 154, 255) 50%);*/
   background: #cbb392d2;
-
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+html {
+  width: 100vw;
+  height: 100vh;
 }

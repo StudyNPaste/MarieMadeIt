@@ -6,10 +6,11 @@
 .loginsignup-container {
     width: 580px;
     height: 600px;
-    background: linear-gradient(180deg, #f89dff, #dddddd17 60%);
+    background: linear-gradient(200deg,#df979c, rgba(255, 255, 255, 0.2)  60%);
     margin: auto;
     padding: 40px 60px;
     border-radius: 15px;
+    box-shadow: 0 0 10px black;
 }
 .loginsignup-container h1 {
     margin: 20px 0px;
@@ -33,7 +34,7 @@
     width: 580px;
     height: 72px;
     color: black;
-    background: rgb(244, 131, 190);
+    background: #df979c;
     margin-top: 30px;
     border: none;
     font-size: 24px;

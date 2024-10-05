@@ -1,7 +1,7 @@
 import p1_img from './product_5.jpg'
 import p2_img from './product_6.jpg'
 import p3_img from './product_7.jpg'
-import p4_img from './product_9.jpeg'
+import p4_img from './product_9.jpg'
 
 let data_product = [
   {

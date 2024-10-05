@@ -6,17 +6,22 @@
     gap: 5px;
     background-color: white;
     box-shadow: 0 0 15px black;
+    width: 100%;
 }
 .footer-logo {
     display: flex;
     align-items: center;
     gap: 20px;
-    
+}
+.f-logo {
+    height: 125px;
+    height: 125px;
 }
 .footer-logo p {
     color: #df979c;
     font-size: 46px;
     font-weight: 700;
+    text-shadow: #ffe8c7 3px -14px 20px;
 } 
 .footer-links {
     display: flex;
@@ -68,9 +73,6 @@
         gap: 10px;
         align-items: end;
     }
-    .footer-logo img {
-        width: 40px;
-    }
     .footer-logo p {
         font-size: 25px;
     }
@@ -84,5 +86,9 @@
     }
     .footer-copyright {
         font-size: 13px;
+    }
+    .f-logo {
+        width: 85px;
+        height: 100px;
     }
 }

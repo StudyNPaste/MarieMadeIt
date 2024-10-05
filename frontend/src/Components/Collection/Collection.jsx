@@ -7,18 +7,18 @@ const Collection = () => {
   const [new_collection,setNew_collections] = useState([])
 
   useEffect(()=>{
-    fetch('http://localhost:4000/newcollections')
+    fetch('https://backend.mariemadeit.com/newcollections')
     .then((response)=>response.json())
     .then((data)=>setNew_collections(data));
   },[])
 
   return (
     <div className='new-collections'>
-        <h1>OUR COLLECTIONS</h1>
+        <h1>OUR COLLECTION</h1>
         <hr />
         <div className="collections">
             {new_collection.map((item,i) => {
-                return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} />
+                return <Item key={i} id={item.id} name={item.name} size={item.size} color={item.color} image={item.image} new_price={item.new_price} />
             })}
         </div>
     </div>

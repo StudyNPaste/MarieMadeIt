@@ -1,8 +1,9 @@
+
 .navbar {
     display: flex;
     justify-content: space-around;
-    padding: 15px 0px;
-    background-color: white;
+    padding: 5px 0 5px 10px;
+    background: linear-gradient(186deg, white, #df979c) 1%;
     align-items: center;
     width: 100%;
     box-shadow: 0 0 15px black;
@@ -12,6 +13,9 @@
     align-items: center;
     gap: 10px;
 }
+.logo-text {
+    display: none;
+}
 #logo {
     width: 125px;
     height: 150px;
@@ -19,6 +23,10 @@
 #cart {
     width: 35px;
     height: 40px;
+    margin:0px 0 40px 45px;
+}
+.drop-cart{
+    flex-direction: column;
 }
 .nav-logo p{
     color: #050505;
@@ -31,8 +39,9 @@
     list-style: none;
     gap: 50px;
     color:#626262;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
+    margin-top: 70px;
 }
 .nav-links li {
     display: flex;
@@ -45,30 +54,62 @@
 }
 .nav-links hr {
     border: none;
-    width: 80%;
+    width: 90%;
     height: 3px;
     border-radius: 10px;
-    background: #df979c;
+    background: white;
 }
 .nav-login-cart {
     display: flex;
     align-items: center;
-    gap: 45px; 
+    margin-left: auto;
+    flex-direction: column-reverse;
+    margin-right: 30px;
+    gap: 40px;
 }
+
 .nav-login-cart button{
-    width: 157px;
-    height: 58px;
+    width: 150px;
+    height: 45px;
+    box-shadow: 0 0 5px black;
     outline: none;
     border: 1px solid #7a7a7a;
     border-radius: 75px;
     color: black;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     background: #df979c;
     cursor: pointer;
+    margin-top: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
-.nav-login-cart button:active {
-    background: #f3f3ff;
+.nav-login-cart .span-login {
+    position: relative;
+    z-index: 1;
+}
+.nav-login-cart button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    transform: translate(-50%,-50%);
+    background: white;
+    border-radius: 50%;
+    transition: width 0.5s, height 0.5s,;
+    z-index: 0;
+}
+.nav-login-cart button:hover::before{
+    width: 810px;
+    height: 810px;
+}
+.nav-login-cart button:hover {
+    box-shadow: 0 0 25px 10px #df979c;
 }
 .nav-cart-count {
     width: 22px;
@@ -76,8 +117,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -35px;
-    margin-left: -55px;
+    margin-top: -100px;
+    margin-bottom: 20px;
+    margin-left: 80px;
     border-radius: 11px;
     font-size: 14px;
     background: red;
@@ -85,11 +127,9 @@
 }
 .nav-dropdown {
     display: none;
+    margin-left: 35px;
 }
 @media(max-width: 1292px) {
-    .navbar {
-        padding: 12px 50px;
-    }
     .nav-logo img {
         width: 40px;
     }
@@ -98,24 +138,20 @@
     }
     .nav-links {
         gap: 30px;
-        font-size: 16px;
     }
     .nav-login-cart {
         gap: 30px;
     }
     .nav-login-cart button {
-        width: 100px;
-        height: 40px;
         font-size: 16px;
     }
     .nav-cart-count {
-        margin-left: -40px;
         font-size: 12px;
     }
 }
 @media(max-width: 1124px) {
     .navbar {
-        padding: 12px 30px;
+        padding: 12px 0px;
     }
     .nav-logo img {
         width: 30px;
@@ -125,10 +161,10 @@
     }
     .nav-links {
         gap: 25px;
-        font-size: 14px;
+        font-size: 18px;
+        font-weight: 600;
     }
     .nav-login-cart button {
-        width: 80px;
         height: 35px;
         font-size: 14px;
     }
@@ -144,49 +180,99 @@
     .navbar {
         padding: 10px 0px;
     }
-    .nav-dropdown {
-        display: block;
-        width: 30px;
-        transition: 0.5s;
-    }
-    .nav-links {
-        display: none;
-        margin-top: 100px;
-        height: 80px;
-        width: 100%;
-        position: absolute;
-        background-color: #e6e5e5;
-        justify-content: center;
-        top: 50px;
-        gap: 12px;
-        font-size: 13px;
-        padding: 0 0 0 10px;
-    }
     .nav-menu-visible {
         display: flex;
     }
     .nav-dropdown.open {
         transform: rotate(90deg);
     }
+    .nav-links{
+        font-size: 16px;
+    }
 }
-@media(max-width: 670px){
+@media(max-width: 770px){
+    /*.nav-dropdown {
+        display: block;
+        width: 30px;
+        transition: 0.5s;
+    }*/
+    .logo-text{
+        display: flex;
+        padding-bottom: 40px;
+        color: rgb(146, 58, 146);
+    }
+    .nav-links {
+        margin-top: 100px;
+        height: 33px;
+        width: 100%;
+        position: absolute;
+        background-color: #fffffff8;
+        justify-content: center;
+        box-shadow: 0 0 5px black;
+        gap: 25px;
+        font-size: 16px;
+        border-radius: 0 0 10px 10px;
+        padding-left: 0;
+    }
+    .nav-links hr {
+        background: #df979c;
+    }
     .navbar {
         padding: 8px 0px;
         gap: 0;
     }
     .nav-logo {
         transform: scale(0.8);
+        align-items: end;
+        
+
     }
     .nav-links {
-        height: 70px;
+        height: 60px;
         top: 50px;
     }
     .nav-login-cart {
         transform: scale(0.8);
     }
 }
-@media(max-width: 380px) {
-    .navbar {
-        width: 380px;   
+@media(max-width: 500px) {
+    .nav-links{
+        font-size: 14px;
+        
+    }
+    .nav-login-cart button {
+        width: 100px;
+
+    }
+    .nav-login-cart{
+        margin-right: 5px;
     }
 }
+@media(max-width: 416px) {
+    .nav-links{
+        font-size: 13px;
+        margin-top: 70px;
+        gap: 12px;
+    }
+    #logo {
+        width: 80px;
+        height: 100px;
+    }
+    .nav-logo {
+        margin-left: -15px;
+    }
+    .logo-text {
+        font-size: 26px;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+@keyframes glowBorder {
+    0%   {background-color:white; left:0px; top:0px;}
+    25%  {background-color:#df979c; left:300px; top:0px; box-shadow: 0 0 0 0 transparent;}
+    50%  {background-color:white; left:300px; top:300px;box-shadow: 0 0 50px 10px white;}
+    75%  {background-color:#df979c; left:0px; top:200px;box-shadow: 0 0 0 0 transparent;}
+    100% {background-color:white; left:0px; top:0px;box-shadow: 0 0 50px 10px white;}
+  }

@@ -26,6 +26,8 @@ let all_product = [
     image: p1_img,
     new_price: 50.0,
     old_price: 80.5,
+    color: "Blue",
+    size: "S"
   },
   {
     id: 2,

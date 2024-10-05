@@ -1,4 +1,4 @@
-const port = 4000;
+const port = process.env.PORT || 4000;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -8,12 +8,128 @@ const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
 const { log, error } = require("console");
+const { MongoClient } = require('mongodb');
+const { Client } = require('square');
+const bodyParser = require('body-parser');
+
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('upload'))
+app.use(bodyParser.json());
 
 //Database Connection with MongoDB
 mongoose.connect("mongodb+srv://MarieMadeIt:Chabot18@cluster0.7yuld6z.mongodb.net/MarieMadeIt?retryWrites=true&w=majority&appName=Cluster0")
+
+//mongodb-square sync
+//setting up mongodb connection
+const uri = "mongodb+srv://MarieMadeIt:Chabot18@cluster0.7yuld6z.mongodb.net/MarieMadeIt?retryWrites=true&w=majority&appName=Cluster0";
+const client = new MongoClient(uri);
+
+async function connectToDatabase() {
+    await client.connect();
+    const database = client.db('MarieMadeIt');
+    const inventoryCollection = database.collection('products');
+    return inventoryCollection;
+}
+//fetching inventory from square
+const squareClient = new Client({
+    accessToken: 'EAAAl83GtlYaN7WYBHx0_vvbheN698_R5NMXPC5TY-GfQOQqzOf6ypFs78hClKfu',
+    environment: 'sandbox'  // Use 'production' in a live environment
+});
+
+async function fetchSquareInventory() {
+    const response = await squareClient.inventoryApi.batchRetrieveInventoryCounts({
+        locationIds: ['L31SCEWEPFDK2'],
+    });
+
+    if (response.result.counts) {
+        return response.result.counts;
+    } else {
+        console.error('Error fetching inventory from Square');
+        return [];
+    }
+}
+
+//sync inv from square to mongodb
+async function syncInventoryToMongoDB() {
+    const squareInventory = await fetchSquareInventory();
+    const inventoryCollection = await connectToDatabase();
+
+    squareInventory.forEach(async (item) => {
+        const update = {
+            $set: {
+                quantity: item.quantity,
+                updatedAt: new Date(item.updatedAt)
+            }
+        };
+
+        await inventoryCollection.updateOne(
+            { itemId: item.catalogObjectId },
+            update,
+            { upsert: true }
+        );
+    });
+}
+//syncing mongodb inv w/ square
+async function updateSquareInventory(itemId, newQuantity) {
+    const response = await squareClient.inventoryApi.batchChangeInventory({
+        changes: [
+            {
+                type: 'ADJUSTMENT',
+                adjustment: {
+                    catalogObjectId: itemId,
+                    fromState: 'IN_STOCK',
+                    toState: 'IN_STOCK',
+                    quantity: newQuantity.toString(),
+                    locationId: 'L31SCEWEPFDK2'
+                }
+            }
+        ]
+    });
+
+    if (response.result.changes) {
+        console.log('Inventory updated in Square');
+    } else {
+        console.error('Error updating Square inventory');
+    }
+}
+
+//square webhook  
+// Your Square Webhook Signature Key
+const SQUARE_SIGNATURE_KEY = 'sPN6qtNwqW9O6ExYluxuLA';
+
+// Function to verify webhook signature
+function verifySquareSignature(signature, requestBody, webhookUrl) {
+    const hmac = crypto.createHmac('sha256', sPN6qtNwqW9O6ExYluxuLA);
+    hmac.update(webhookUrl + requestBody);
+    const generatedSignature = hmac.digest('base64');
+    return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(generatedSignature));
+}
+
+// Webhook endpoint to receive inventory updates
+app.post('/webhooks/inventory-update', (req, res) => {
+    const signature = req.headers['x-square-signature']; // The signature Square sends
+    const webhookUrl = 'https://mariemadeit.com/webhooks/inventory-update'; // Your public URL
+
+    // Verify the signature to ensure the request is from Square
+    if (verifySquareSignature(signature, JSON.stringify(req.body), webhookUrl)) {
+        const webhookData = req.body;
+
+        console.log('Webhook received:', webhookData);
+        // Process the event data (e.g., update inventory in your system)
+        
+        res.status(200).send('Webhook received successfully');
+    } else {
+        console.error('Invalid signature');
+        res.status(403).send('Forbidden');
+    }
+});
+
+//paired...now displaying sdk
+
+//
+
 
 //Api Creation
 
@@ -34,12 +150,12 @@ const upload = multer({storage:storage})
 
 //Creating Upload EndPoint for images
 
-app.use('/images',express.static('upload/images'))
+app.use('/images',express.static('/upload/images'))
 
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-        image_url:`https://mariemadeit.onrender.com/images/${req.file.filename}`
+        image_url:`https://backend.mariemadeit.com/images/${req.file.filename}`
     })
 })
 
@@ -57,6 +173,14 @@ const Product = mongoose.model("Product", {
     image:{
         type:String,
         required:true,
+    },
+    color:{
+        type:String,
+        require:true,
+    },
+    size:{
+        type:String,
+        require:true,
     },
     category:{
         type:String,
@@ -95,6 +219,8 @@ app.post('/addproduct',async (req,res)=>{
         id:id,
         name:req.body.name,
         image:req.body.image,
+        color:req.body.color,
+        size:req.body.size,
         category:req.body.category,
         new_price:req.body.new_price,
         old_price:req.body.old_price,
@@ -204,7 +330,7 @@ app.post('/login',async (req,res) =>{
 // creating endpoint for new collection data
 app.get('/newcollections', async (req,res)=>{
     let products = await Product.find({});
-    let newcollection = products.slice(-20).slice(1);
+    let newcollection = products /*.slice(-10).slice(0);*/
     console.log('NewCollection Fetched');
     res.send(newcollection);
 })
