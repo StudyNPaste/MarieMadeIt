@@ -1,0 +1,201 @@
+/* ── Heights — match Popular exactly ───────────────────────── */
+:root {
+  --acc-card-max-height: 425px;
+  --acc-card-min-height: 350px;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --acc-card-max-height: 400px;
+    --acc-card-min-height: 325px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --acc-card-max-height: 375px;
+    --acc-card-min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --acc-card-max-height: 350px;
+    --acc-card-min-height: 310px;
+  }
+}
+
+/* ── Section wrapper ────────────────────────────────────────── */
+.accessories {
+  padding: 40px 0;
+  background: url(../Assets/patterns-back.png) no-repeat center center;
+  background-size: cover;
+  border-top: #283618 2px solid;
+  overflow: hidden;
+}
+
+/* ── Card overrides ─────────────────────────────────────────── */
+.accessories .item {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.accessories .name {
+  color: #fefae0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.63);
+}
+
+.accessories .size {
+  color: #dda15e;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.63);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.accessories-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fefae0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.63);
+}
+.accessories-title{
+    padding: 20px 20px 20px 30px;
+}
+.accessories-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #dda15e;
+  padding-bottom: 6px;
+}
+
+.accessories-header p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fefae0;
+}
+
+.accessories-viewall {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fefae0;
+  text-decoration: none;
+  border: 1.5px solid #fefae0;
+  margin-right: 20px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.accessories-viewall:hover {
+  background-color: #fefae0;
+  color: #606c38;
+}
+
+/* ── Scroll track ───────────────────────────────────────────── */
+.accessories-track {
+  display: flex;
+  align-items: flex-end;        /* bottom-baseline: taller cards rise up */
+  gap: 12px;
+  height: 425px;                /* matches Popular track height */
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 10px;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.accessories-track::-webkit-scrollbar {
+  display: none;
+}
+
+.accessories-track.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+/* ── Each card slot ─────────────────────────────────────────── */
+.accessories-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+  
+  display: flex;
+  flex-direction: column;
+  transition: height 0.01s linear;
+}
+
+/* Inner wrapper fills full height */
+.accessories-item-inner {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 6px;
+  min-height: 0;
+}
+
+.accessories-item-inner > * {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.accessories-item-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .accessories-track {height: 400px;}
+    .accessories-title h2{font-size: 1.75rem;}
+}
+
+@media (max-width: 768px) {
+  .accessories-track {
+    height: 375px;
+    padding: 20px 20px 12px;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+  }
+  .accessories-title{
+    margin-bottom: 0px;
+}
+  .accessories-item {
+    width: 260px;
+    scroll-snap-align: center;
+  }
+  .accessories-header { padding-top: 0; margin-bottom: 0; }
+  .accessories-header h2 { font-size: 1.5rem; }
+  .accessories-header p  { font-size: .8rem; }
+  .accessories-viewall   { font-size: 12px; padding: 8px 12px; margin-right: 10px;}
+}
+
+@media (max-width: 480px) {
+  .accessories-track {
+    height: 350px;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+  }
+  .accessories-item {
+    width: 340px;
+    scroll-snap-align: center;
+  }
+  .accessories-title {padding: 10px;}
+  .accessories-header h2 { font-size: 1.3rem; }
+  .accessories-header p  { font-size: 0.8rem; }
+}
+
+@media (max-width: 400px) {
+  .accessories-item {width:300px;}
+  .accessories-viewall {margin-right: 5px;}
+}

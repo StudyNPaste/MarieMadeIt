@@ -1,0 +1,273 @@
+.promo-manager {
+  padding: 30px;
+  max-width: 1000px;
+}
+
+.pm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pm-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: #000;
+}
+
+.pm-header p {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.pm-btn-primary {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.pm-btn-primary:hover:not(:disabled) {
+  background: #333;
+}
+
+.pm-btn-primary:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.pm-btn-secondary {
+  padding: 10px 20px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pm-btn-secondary:hover {
+  background: #f5f5f5;
+}
+
+/* Form */
+.pm-form-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.pm-form-card h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: #000;
+}
+
+.pm-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pm-field-full {
+  grid-column: 1 / -1;
+}
+
+.pm-field-checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.pm-field-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.pm-field label {
+  font-size: 13px;
+  color: #555;
+  font-weight: 600;
+}
+
+.pm-label-hint {
+  font-weight: 400;
+  color: #999;
+  font-size: 12px;
+}
+
+.pm-field input,
+.pm-field select {
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pm-field input:focus,
+.pm-field select:focus {
+  border-color: #000;
+}
+
+.pm-form-error {
+  font-size: 13px;
+  color: #c0392b;
+  margin: 12px 0 0;
+}
+
+.pm-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Table */
+.pm-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+}
+
+.pm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.pm-table thead tr {
+  background: #f9f9f9;
+}
+
+.pm-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e8e8e8;
+  white-space: nowrap;
+}
+
+.pm-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+  vertical-align: middle;
+}
+
+.pm-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pm-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.pm-code {
+  display: block;
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 1px;
+  font-size: 13px;
+  color: #000;
+}
+
+.pm-desc {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* Badges */
+.pm-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-active {
+  background: #e8f8ef;
+  color: #1a7a44;
+}
+
+.badge-paused {
+  background: #f0f0f0;
+  color: #888;
+}
+
+.badge-expired {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+/* Actions */
+.pm-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.pm-action-btn {
+  background: none;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pm-action-btn:hover {
+  background: #f5f5f5;
+}
+
+.pm-action-delete:hover {
+  background: #fdecea;
+  border-color: #f5c6c6;
+}
+
+.pm-loading,
+.pm-empty {
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* Cart discount line */
+.cartitems-discount p {
+  color: #27ae60;
+  font-weight: 600;
+}

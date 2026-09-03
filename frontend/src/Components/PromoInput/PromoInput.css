@@ -1,0 +1,107 @@
+.promo-input-wrapper {
+  margin: 12px 0;
+}
+
+.promo-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.promo-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.promo-input:focus {
+  border-color: #000;
+}
+
+.promo-input:disabled {
+  background: #f9f9f9;
+  color: #999;
+}
+
+.promo-apply-btn {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.promo-apply-btn:hover:not(:disabled) {
+  background: #333;
+}
+
+.promo-apply-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.promo-error {
+  font-size: 13px;
+  color: #c0392b;
+  margin: 6px 0 0;
+}
+
+.promo-applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0faf4;
+  border: 1px solid #a8d5b5;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin: 12px 0;
+}
+
+.promo-applied-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.promo-check {
+  color: #27ae60;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.promo-applied-code {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.promo-applied-desc {
+  font-size: 13px;
+  color: #555;
+}
+
+.promo-remove-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #c0392b;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.promo-remove-btn:hover {
+  color: #922b21;
+}

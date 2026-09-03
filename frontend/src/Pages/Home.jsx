@@ -1,18 +1,20 @@
 import React from 'react'
 import Hero from '../Components/Hero/Hero'
-import Popular from '../Components/Popular/Popular'
-import Offers from '../Components/Offers/Offers'
 import Collection from '../Components/Collection/Collection'
-import NewsLetter from '../Components/NewsLetter/NewsLetter'
+import Popular from '../Components/Popular/Popular'
+import FeaturedHero from '../Components/FeaturedHero/FeaturedHero'
+import Accessories from '../Components/Accessories/Accessories'
+import PromoBar from '../Components/PromoBar/PromoBar'
 
 const Home = () => {
   return (
     <div>
+      <PromoBar />
+      <FeaturedHero />
       <Hero />
       <Popular />
-      {/*<Offers />*/}
+      <Accessories />
       <Collection />
-      <NewsLetter />
     </div>
   )
 }

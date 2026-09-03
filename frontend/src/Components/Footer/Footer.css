@@ -3,82 +3,155 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    background-color: white;
-    box-shadow: 0 0 15px black;
+    gap: 20px;
     width: 100%;
+    background-color: #dda15e;
+}
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    background-color: #dda15e;
+    width: 100%;
+}
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 .footer-logo {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 20px;
 }
 .f-logo {
-    height: 125px;
-    height: 125px;
+    height: 130px;
+    width: 110px;
 }
-.footer-logo p {
-    color: #df979c;
-    font-size: 46px;
-    font-weight: 700;
-    text-shadow: #ffe8c7 3px -14px 20px;
-} 
+.footer-logo h1 {
+    color: #606c38;
+    font-family: "Zalando Sans Expanded";
+    font-size: 36px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px #fefae085;
+}
+.footer-logo p{
+    font-size: 14px;
+}
 .footer-links {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
-    gap: 50px;
-    color: #252525;
-    font-size: 20px;
+    gap: 20px;
+    font-size: 1rem;
+    font-family: "Zalando Sans Expanded";
+    font-weight: 300;
+    margin-top: 10px;
+    padding: 0;
 }
 .footer-links li {
     cursor: pointer;
+    border-radius: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: inherit;
+    
+}
+.footer-links li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 5px 20px;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 25px;
+}
+.footer-links li:hover{
+    background-color: #fefae0;
+    box-shadow: 0 0 3px black;
+}
+.footer-links a {
+    color:#283618;
+}
+.footer-links a:hover {
+    color:#bc6c25;
 }
 .footer-social-icon {
     display: flex;
     gap: 20px;
+    
 }
 .footer-icons-container {
-    padding: 10px;
-    padding-bottom: 6px;
-    background: #fbfbfb;
-    border: 1px solid #ebebeb;
+    padding:10px 10px 6px 10px ;
+    border-radius: 25px;
+    background:#283618;
+    border: 1px solid rgb(156, 156, 156);
 
 }
+.footer-icons-container:hover{
+    background-color: #606c38;
+}
 .footer-icons-container img {
-    width: 31px;
-    height: 31px;
+    width: 25px;
+    height: 25px;
 }
 .footer-copyright {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
     width: 100%;
-    margin-bottom: 30px;
-    color: #1a1a1a;
-    font-size: 20px;
+    margin-bottom: 15px;
+    color: #283618;
+    font-size: 14px;
 }
 .footer-copyright hr {
     width: 80%;
     border: none;
     border-radius: 10px;
-    height: 3px;
-    background: #c7c7c7;
+    height: 1px;
+    background: #283618;
 }
-@media(max-width: 800px){
-    .footer {
-        gap: 20px;
-    }
+@media (max-width: 1200px) {
     .footer-logo {
         gap: 10px;
-        align-items: end;
     }
-    .footer-logo p {
-        font-size: 25px;
+    .f-logo {
+        width: 100px;
+        height: 120px;
+    }
+    .footer-logo h1 {
+        font-size: 28px;
+    }
+    .footer-logo p{
+        font-size: 11px;
+    }
+}
+@media(max-width: 800px){
+    .footer-logo {
+        gap: 10px;
+        align-items: flex-end;
+    }
+    .footer-logo h1 {
+        font-size: 24px;
+    }
+    .footer-logo p{
+        font-size: 10px;
     }
     .footer-links{
         font-size: 14px;
-        gap: 10px;
+        padding: 0;
     }
     .footer-social-icon img {
         width: 22px;
@@ -88,7 +161,47 @@
         font-size: 13px;
     }
     .f-logo {
-        width: 85px;
+        width: 80px;
         height: 100px;
+    }
+}
+@media (max-width:600px) {
+    .footer-links{
+        gap: 5px;
+    }
+    .footer-copyright {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+    .f-logo {
+        width: 70px;
+        height: 90px;
+    }
+    .footer-logo{
+        gap:0;
+    }
+    .footer-logo h1 {
+        font-size: 20px
+    }
+    .footer-logo p{
+        font-size: 9px;
+    }
+    .footer-social-icon{
+        gap: 10px;
+    }
+}
+@media (max-width:400px) {
+    .footer-logo h1 {
+        font-size: 18px;
+    }
+    .footer-links {
+        font-size: 12px;
+    }
+     .footer-social-icon img {
+        width: 15px;
+        height: 15px;
+    }
+    .footer-copyright {
+        font-size: 10px;
     }
 }

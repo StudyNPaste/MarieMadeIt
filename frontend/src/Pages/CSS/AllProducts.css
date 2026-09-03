@@ -1,0 +1,33 @@
+.all-products {
+    min-height: 80vh;
+    background-color: #fefae0;
+}
+.all-products .collection-title h1{
+    text-align: center;
+    font-size: 32px;
+    padding: 100px 0 10px 0;
+    margin: 0 auto;
+}
+.all-products .collection-title p{
+    text-align: center;
+    padding: 0;
+}
+@media(max-width: 1105px) {
+    .all-products .collection-title h1{
+        font-size: 30px;
+    }
+}
+@media(max-width: 800px) {
+    .all-products .collection-title h1{
+        font-size: 28px;
+        padding: 50px 0 10px 0;
+    }
+}
+@media(max-width: 600px) {
+    .all-products .collection-title h1{
+        font-size: 22px;
+        padding: 50px 0 10px 0;
+    }
+}
+
+

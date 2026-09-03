@@ -1,44 +1,106 @@
-.descriptionbox {
-    margin: 120px 170px;
+/* ── Wrapper ────────────────────────────────────────────────── */
+.dbox {
+  margin: 60px 170px;
+  color: #283618;
 }
-.descriptionbox-navigator {
-    display: flex;
+
+/* ── Card ───────────────────────────────────────────────────── */
+.dbox-card {
+  background: #fefae0;
+  border: 1px solid #e2d9c4;
+  border-radius: 12px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 20px rgba(40, 54, 24, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
-.descriptionbox-nav-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 600;
-    width: 171px;
-    height: 70px;
-    border: 1px solid black;
+
+/* ── Each row ───────────────────────────────────────────────── */
+.dbox-section {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
-.descriptionbox-nav-box .fade {
-    background: #fbfbfb;
-    color: #555;
+
+/* ── Icon bubble ────────────────────────────────────────────── */
+.dbox-icon {
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: #f0ebe0;
+  border: 1.5px solid #d6c9a8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.descriptionbox-description {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    border: 1px solid black;
-    padding: 48px;
-    padding-bottom: 70px;
-    border-radius: 5px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+
+/* ── Heading ────────────────────────────────────────────────── */
+.dbox-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #283618;
+  margin: 0 0 8px;
 }
-@media(max-width: 1280px){
-    .descriptionbox{
-        margin: 60px;
-    }
+
+/* ── Body text ──────────────────────────────────────────────── */
+.dbox-text {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 0 8px;
 }
-@media(max-width: 800px){
-    .descriptionbox{
-        margin: 60px 20px;
-    }
-    .descriptionbox-description {
-        font-size: 14px;
-    }
+
+.dbox-text:last-child { margin-bottom: 0; }
+
+/* ── List ───────────────────────────────────────────────────── */
+.dbox-list {
+  margin: 8px 0 12px 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dbox-list li {
+  font-size: 0.875rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.dbox-list li::marker { color: #dda15e; }
+
+/* ── Divider ────────────────────────────────────────────────── */
+.dbox-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d6c9a8, transparent);
+}
+
+/* ── Instagram link ─────────────────────────────────────────── */
+.dbox-link {
+  color: #dda15e;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dbox-link:hover { color: #606c38; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .dbox { margin: 60px; }
+}
+
+@media (max-width: 800px) {
+  .dbox { margin: 40px 20px; }
+  .dbox-card { padding: 24px 22px; }
+  .dbox-heading { font-size: 0.95rem; }
+  .dbox-text { font-size: 0.85rem; }
+}
+
+@media (max-width: 500px) {
+  .dbox-icon { width: 38px; height: 38px; font-size: 1.2rem; }
+  .dbox-card { gap: 20px; padding: 20px 16px; }
 }

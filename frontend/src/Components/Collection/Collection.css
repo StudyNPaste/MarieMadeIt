@@ -1,56 +1,56 @@
 .new-collections {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 140px;
-    padding: 50px 0;
-    background: linear-gradient(180deg,#df979c,rgba(255, 255, 255, 0.589) 12%);
-    box-shadow: 0 0 10px black;
-    border-bottom: 25px;
+    box-shadow: inset 0 0 10px #283618;
+    background:linear-gradient(180deg,#fefae0,#dda25e9e 60%) ;
+    gap: 20px;
 }
 .new-collections h1 {
-    color: #171717;
-    font-size: 36px;
-    font-weight: 600;
-    text-shadow: #ffe8c7 3px -14px 20px;
+    color: #dda15e;
+    font-size: 32px;
+    font-weight: 700;
+    
+    margin: 120px auto 0 30px;
+    font-family: "Zalando Sans Expanded";
 }
-.new-collections hr {
-    width: 150px;
-    height: 6px;
-    border-radius: 10px;
-    background: #cbb392d2;
+.collection-title p{
+    font-size: 1rem;
+    padding: 10px 0 0 30px;
+    color: #283618;
 }
 .collections {
     display: grid;
-    grid-template-columns: 19% 19% 19% 19% 19%;
-    margin: 15px 0 0 ;
-    gap: 70px 3px;
-    background: #df979c4f;
-    padding: 3% 0;
-    box-shadow:inset 0 0 7px black;
-    width: 90%;
-    justify-items: center;
+    margin: 30px auto 100px auto;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    gap:20px 5px ;
+    align-content: center;
     justify-content: center;
-    border-radius: 10px;
+    width: 100%;
+    align-items: stretch;
 }
-@media screen and (max-width: 1660px){
+
+@media screen and (max-width: 1850px){
     .collections {
-        grid-template-columns: 23% 23% 23% 23%;
-        width: 90%;
+        
+        grid-template-columns: 19% 19% 19% 19% 19%;
+    }
+}
+@media screen and (max-width: 1550px){
+    .collections .name {
+        font-size: 16px;
+    }
+    .collections .size{
+        font-size: 14px;
     }
 }
 @media screen and (max-width: 1280px){
-    .new-collections h1 {
-        font-size: 40px;
-    }
     .new-collections hr {
         width: 160px;
         height: 4px;
     }
     .collections {
-        margin-top: 30px;
-        width: 96%;
-        grid-template-columns: 24% 24% 24% 24%;
+        width: 100%;
+        grid-template-columns: 32% 32% 32% ;
     }
 }
 @media screen and (max-width: 1105px){
@@ -58,7 +58,8 @@
         padding-top: 30px;
     }
     .new-collections h1 {
-        font-size: 30px;
+        font-size: 28px;
+        margin: 80px auto 0 30px;
     }
     .new-collections hr {
         width: 120px;
@@ -66,30 +67,87 @@
     }
     .collections {
         display: grid;
-        grid-template-columns: .9fr .9fr .9fr;
-        padding: 40px 0 40px 20px;
+        padding: 20px 0 ;
+        margin: 0;
     }
 }
 @media  screen and (max-width: 800px){
     .new-collections{
-        gap: 6px;
-        background-color: rgba(255, 255, 255, 0.623);
+        gap: 40px;
+        padding: 30px 0;
     }
     .new-collections h1 {
-        font-size: 26px;
+        
+        padding-top: 10px;
     }
     .new-collections hr {
         width: 100px;
     }
     .collections {
-        grid-template-columns: 49% 49%;
+        grid-template-columns: 48% 48%;
         width: 100%;
-        column-gap: 0;
+        gap: 20px 10px;
+        padding: 0;
+    }
+    .collections .item {
+        width: 100%;
+    }
+
+
+}
+@media screen and (max-width: 600px){
+    .new-collections{
+        box-shadow: none;
+    }
+    .collections .item img{
+        width: 100%;
+    }
+    .collections .name{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .collections .item-price-new{
+        font-size: 16px;
+        font-weight: 600;
     }
 }
-@media screen and (max-width: 560px){
-    .collections {
-        row-gap: 35px;
-        padding-left: 0;
+
+@media screen and (max-width: 480px){
+    .new-collections{
+        width: 100%;
+        box-shadow: none;
+        gap: 10px ;
+    }
+    .collections{
+        margin-top: 20px;
+        grid-template-columns: 47.5% 47.5%;
+        gap: 10px 5px;
+    }
+    .collections .item img{
+        width: 100%;
+        
+    }
+    .collections .size{
+        font-size: 11px;
+    }
+    .collections .name{
+        font-size: 12px;
+    }
+    .collections .item-price-new{
+        font-size: 15px;
+    }
+    .collections .item-btn{
+        height: 18px;
+        font-size: 12px;
+        margin:10px auto 5px auto;
+    }
+    .new-collections h1 {
+        font-size: 1.3rem;
+        padding-top: 10px;
+        margin: 20px auto 0 10px;
+    }
+    .collection-title p{
+        padding:6px 0 0 10px;
+        font-size: 0.875rem;
     }
 }

@@ -1,99 +1,132 @@
-.shopcategory-indexSort {
-    display: flex ;
-    margin: 0px 170px;
-    justify-content: space-between;
-    align-items: center;
-}
 .shop-category {
-    height: 100%;
-}
-.shopcategory-sort {
-    padding: 10px 20px;
-    border-radius: 40px;
-    border: 1px solid #888;
-    margin-top: 8px;
-}
-.shopcategory-indexSort p span {
-    font-weight: 600px;
-}
-.shopcategory-products {
-    margin: 20px auto 50px auto;
-    display: grid;
-    grid-template-columns: 19% 19% 19% 19% 19%;
-    gap:40px;
-    width: 75%;
-    align-items: center;
-    height: 100%;
-    padding: 50px 0;
-}
-.shopcategory-loadmore {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 150px auto;
-    width: 233px;
-    height: 69px;
-    border-radius: 75px;
-    background: #ededed;
-    color: #787878;
-    font-size: 18px;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px #283618;
+    background-color: #fff7ee;
+    min-height: 90vh;
+}
+.shop-category .item-price-new span {
+    display: inline-flex;
+    color: #dda15e;
     font-weight: 500;
 }
-@media (max-width:1950px) {
+.category-text{
+    text-transform: capitalize;
+    text-align: center;
+    color: #bb792c;
+    font-family: "Zalando Sans Expanded";
+    font-weight: 700;
+    font-size: 32px;
+    width: 300px;
+    padding-top: 100px;
+    margin: 0 auto;
+    border-bottom: #283618 1px solid;
+}
+.shopcategory-products {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    gap: 20px 10px ;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+#reverse {
+    display:none;
+}
+
+@media (max-width:1850px) {
     .shopcategory-products{
-        grid-template-columns: 23% 23% 23% 23%;
+        width: 100%;
+        grid-template-columns: 19% 19% 19% 19% 19%;
     }
 }
-@media (max-width:1660px) {
-    .shopcategory-products{
-        width: 80%;
+@media (max-width:1550px) {
+    .shopcategory-products .name{
+        font-size: 16px;
+    }
+    .shopcategory-products .size{
+        font-size: 14px;
     }
 }
 @media(max-width: 1280px) {
-    .shopcategory-indexSort {
-        width: 90%;
-        margin: auto;
+    .shopcategory-products{
+        width: 100%;
+        margin: 30px auto 50px auto;
+        grid-template-columns: 32% 32% 32%;
     }
-    .shopcategory-sort {
-        padding: 5px 10px;
-        font-size: 12px;
+}
+@media(max-width: 1105px) {
+    .category-text{
+        font-size: 30px;
     }
-    .shopcategory-indexSort p {
-        font-size: 12px;
+    .shopcategory-products{
+        display: grid;
+    }
+}
+@media(max-width: 840px) {
+    .shop-category{
+        gap: 6px;
+        padding: 30px 0;
+    }
+    .category-text{
+        font-size: 22px;
+        padding: 60px 0 0px 0;
     }
     .shopcategory-products {
-        width: 90%;
-        margin: 10px auto;
-        row-gap: 40px;
+        width: 100%;
+        gap:20px 10px;
+        grid-template-columns: 48% 48%;
+        padding: 0;
     }
-    .shopcategory-products .item {
-        margin: auto;
+    .shopcategory-products .item{
+        width: 100%;
     }
-    .shopcategory-loadmore {
-        margin: 100px auto;
-        width: 200px;
-        height: 60px;
+}
+@media(max-width: 600px) {
+    .shop-category{
+        box-shadow: inset 0 0 5px black;
+    }
+    .category-text{
+        font-size: 26px;
+    }
+    .shopcategory-products .item img{
+        
+        width: 100%;
+    }
+    .shopcategory-products .name{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .shopcategory-products .item-price-new{
         font-size: 16px;
+        font-weight: 600;
     }
 }
-@media (max-width:1024px) {
-    .shopcategory-products{
-        grid-template-columns: 1fr 1fr 1fr;
+@media(max-width: 480px) {
+    .shop-category{
+        width: 100%;
+        box-shadow: none;
     }
-}
-@media(max-width: 873px) {
-    .shopcategory-products {
-        width: 95%;
-    }
-    .shopcategory-loadmore {
-        margin: 60px;
-        width: 150px;
-        height: 40px;
-        font-size: 13px;
-    }
-    .shopcategory-products{
-        grid-template-columns: 1fr 1fr;
-    }
-}
 
+    .shopcategory-products{
+        margin-top: 20px;
+        grid-template-columns: 47.5% 47.5%;
+        gap:10px 5px;
+    }
+    .shopcategory-products .name{
+        font-size: 12px;
+    }
+    .shopcategory-products .size{
+        font-size: 11px;
+    }
+    .shopcategory-products .item-btn {
+        font-size: 14px;
+        height: 18px;
+        margin: 10px auto 5px auto;
+    }
+    .shopcategory-products .item-price-new{
+        font-size: 15px;
+    }
+}
 
